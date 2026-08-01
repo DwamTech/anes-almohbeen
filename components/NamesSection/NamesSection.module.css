@@ -1,0 +1,16 @@
+.section { padding: 105px 0; background: rgba(2,8,28,.55); position:relative; }
+.heading { display:flex; justify-content:space-between; align-items:flex-end; gap:30px; margin-bottom:42px; }
+.heading > div > span { color:#6f98ff; font-size:11px; letter-spacing:.14em; }
+.heading h2 { font-size:38px; margin:8px 0 4px; font-weight:600; }.heading p{margin:0;color:var(--muted);font-size:13px}
+.search { width:310px;height:48px;border:1px solid var(--line);border-radius:999px;display:flex;align-items:center;padding:0 18px;gap:9px;background:rgba(255,255,255,.035);color:#8ba6df; }
+.search input { width:100%;border:0;outline:0;background:transparent;color:#fff;font-size:12px; }.search input::placeholder{color:#7382a4}
+.grid { display:grid;grid-template-columns:repeat(4,1fr);gap:15px; }
+.card { min-height:245px;border:1px solid var(--line);border-radius:18px;padding:22px;position:relative;background:linear-gradient(145deg,rgba(16,38,92,.7),rgba(4,14,43,.82));overflow:hidden;transition:.3s ease; }
+.card::after{content:"";position:absolute;width:120px;height:120px;border-radius:50%;background:#1257ff;filter:blur(60px);opacity:0;left:-30px;bottom:-40px;transition:.3s}
+.card:hover{transform:translateY(-5px);border-color:rgba(99,148,255,.55);box-shadow:0 18px 50px rgba(0,0,0,.25)}.card:hover::after{opacity:.25}
+.number{position:absolute;left:18px;top:16px;color:#7182aa;font-size:10px;letter-spacing:.1em}.icon{color:#7da1ff;font-size:16px;margin-bottom:17px}
+.card h3{font-size:28px;margin:0 0 10px;font-weight:600}.card p{font-size:11px;line-height:1.8;color:#9bacca;margin:0;min-height:43px}
+.more{position:absolute;bottom:21px;right:22px;color:#8195bd;font-size:10px;z-index:1}.more b{font-size:16px;color:#76a0ff;margin-right:6px}.empty{text-align:center;color:var(--muted);padding:50px}
+@media(max-width:950px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:680px){.heading{align-items:stretch;flex-direction:column}.search{width:100%}.grid{grid-template-columns:repeat(2,1fr)}.section{padding:75px 0}}
+@media(max-width:420px){.grid{grid-template-columns:1fr}.card{min-height:220px}}

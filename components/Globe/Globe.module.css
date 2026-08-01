@@ -1,0 +1,5 @@
+.globe { width: 100%; height: 100%; border-radius: 50%; overflow: visible; filter: drop-shadow(0 0 32px rgba(20,121,255,.38)) drop-shadow(0 28px 42px rgba(0,0,0,.38)); }
+.globe canvas { display: block; background: transparent !important; }
+.fallback { width: 100%; height: 100%; background: url("/images/earth-transparent.png") center / contain no-repeat; animation: fallbackSpin 24s linear infinite; }
+@keyframes fallbackSpin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .fallback { animation: none; } }

@@ -1,0 +1,24 @@
+.about { position:relative; overflow:hidden; padding:110px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:linear-gradient(135deg,rgba(7,24,65,.7),rgba(2,9,31,.84)); }
+.about::before { content:""; position:absolute; width:520px; height:520px; left:-180px; top:-190px; border-radius:50%; background:rgba(20,87,255,.12); filter:blur(90px); pointer-events:none; }
+.inner { display:grid; grid-template-columns:1.05fr .95fr; align-items:center; gap:75px; }
+.content { position:relative; z-index:2; }
+.eyebrow { color:#7098ff; font-size:11px; letter-spacing:.15em; display:flex; align-items:center; gap:10px; }
+.eyebrow span { width:28px; height:1px; background:#477eff; box-shadow:0 0 8px #477eff; }
+.content h2 { margin:13px 0 9px; font-size:clamp(42px,5vw,67px); font-weight:600; color:#f5f8ff; text-shadow:0 0 35px rgba(73,120,255,.2); }
+.lead { margin:0 0 19px; color:#bcd0ff; font-size:17px; font-weight:600; line-height:2; }
+.text { max-width:650px; margin:0; padding-right:20px; border-right:2px solid #2866ff; color:#aebddd; font-size:14px; line-height:2.35; }
+.download { width:max-content; margin-top:30px; padding:10px 14px 10px 22px; display:flex; align-items:center; gap:12px; border:1px solid rgba(111,153,255,.26); border-radius:999px; background:linear-gradient(120deg,#145cff,#173fac); box-shadow:0 13px 35px rgba(20,87,255,.25); transition:transform .25s ease,box-shadow .25s ease; }
+.download:hover { transform:translateY(-3px); box-shadow:0 18px 45px rgba(20,87,255,.35); }
+.downloadIcon { width:34px; height:34px; display:grid; place-items:center; border-radius:50%; color:#1457ff; background:white; font-size:20px; font-weight:700; }
+.download > span:last-child { display:flex; flex-direction:column; line-height:1.4; }
+.download b { font-size:12px; }.download small { color:#b7caff; font-size:8px; }
+.bookSide { width:min(40vw,460px); aspect-ratio:1; position:relative; display:grid; place-items:center; justify-self:center; }
+.bookGlow { position:absolute; inset:14%; border-radius:50%; background:rgba(30,93,255,.2); filter:blur(58px); }
+.orbitOne,.orbitTwo { position:absolute; border:1px solid rgba(111,153,255,.16); border-radius:50%; pointer-events:none; }
+.orbitOne { inset:2%; transform:rotate(-18deg); }.orbitTwo { inset:13%; transform:rotate(26deg); border-color:rgba(206,180,104,.13); }
+.cover { position:relative; z-index:2; width:94%; height:auto; object-fit:contain; filter:drop-shadow(0 25px 32px rgba(0,0,0,.5)) drop-shadow(0 0 24px rgba(42,113,255,.17)); transition:transform .35s ease; }
+.bookSide:hover .cover { transform:translateY(-7px) scale(1.015); }
+.bookBadge { position:absolute; z-index:3; left:-3%; bottom:12%; min-width:175px; padding:12px 15px; display:grid; grid-template-columns:24px 1fr; column-gap:8px; border:1px solid rgba(141,172,245,.2); border-radius:13px; background:rgba(3,14,43,.8); backdrop-filter:blur(14px); box-shadow:0 12px 32px rgba(0,0,0,.3); }
+.bookBadge span { grid-row:1/3; align-self:center; color:#d2b96f; }.bookBadge b { font-size:11px; }.bookBadge small { color:#8295bd; font-size:8px; }
+@media(max-width:800px){.about{padding:80px 0}.inner{grid-template-columns:1fr;gap:45px}.bookSide{width:min(86vw,430px);grid-row:1}.content{text-align:center}.eyebrow{justify-content:center}.text{text-align:right}.download{margin-inline:auto}.bookBadge{left:1%}}
+@media(max-width:480px){.about{padding:65px 0}.content h2{font-size:46px}.lead{font-size:15px}.text{font-size:13px}.bookSide{width:94vw}.bookBadge{bottom:8%;min-width:155px}}

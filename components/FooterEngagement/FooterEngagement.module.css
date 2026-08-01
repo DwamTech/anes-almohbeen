@@ -1,0 +1,14 @@
+.section { position:relative; overflow:hidden; background:radial-gradient(circle at 50% 10%,rgba(35,92,226,.3),transparent 38%),linear-gradient(180deg,#061941 0%,#03102d 100%);border-top:1px solid rgba(137,170,255,.16);border-bottom:1px solid rgba(137,170,255,.14); }
+.section::before { content:""; position:absolute; inset:0; pointer-events:none; opacity:.3; background-image:radial-gradient(circle,#fff 0 1px,transparent 1.3px),radial-gradient(circle,#6898ff 0 1px,transparent 1.4px);background-size:97px 97px,151px 151px;background-position:10px 18px,53px 71px; }
+.engagement { text-align:center; position:relative; z-index:1; padding-block:58px 45px; }
+.kicker { margin:0 0 6px; color:#7da1ff; font-size:10px; letter-spacing:.16em; }
+.engagement h2 { margin:0; font-size:clamp(20px,2.4vw,30px); font-weight:600; color:#f5f8ff; text-shadow:0 3px 18px rgba(0,0,0,.5); }
+.shareButtons { display:flex; flex-direction:row; justify-content:center; gap:9px; margin-top:23px; }
+.shareButtons button { width:42px; height:42px; padding:0; display:grid; place-items:center; border:0; border-radius:9px; color:white; cursor:pointer; font-family:Arial,sans-serif; font-size:25px; font-weight:700; box-shadow:0 8px 20px rgba(0,0,0,.25); transition:transform .2s ease,filter .2s ease; }
+.shareButtons button:hover { transform:translateY(-4px); filter:brightness(1.12); }
+.shareButtons button:focus-visible { outline:2px solid white; outline-offset:3px; }
+.shareButtons svg { width:24px; height:24px; fill:currentColor; }
+.facebook { background:#1877f2; }.x { background:#111827; }.whatsapp { background:#19af39; }.telegram { background:#28a8e9; }.email { background:#8a8f9a; }.more { background:#1267e8; }
+.visitors { width:210px; margin:31px auto 0; padding-top:19px; border-top:1px solid rgba(129,161,234,.2); display:flex; flex-direction:column; align-items:center; }
+.visitors span { color:#e3e9f8; font-size:18px; font-weight:600; }.visitors strong { margin-top:7px; color:#98b5ff; font-size:16px; letter-spacing:.07em; font-family:Arial,sans-serif; }
+@media(max-width:480px){.engagement{padding-block:48px 38px}.shareButtons{gap:7px}.shareButtons button{width:39px;height:39px}.visitors span{font-size:16px}}

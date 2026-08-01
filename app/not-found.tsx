@@ -1,0 +1,2 @@
+import Link from "next/link";
+export default function NotFound(){return <main className="site-shell" style={{display:"grid",placeItems:"center",textAlign:"center",padding:"30px"}}><div style={{position:"relative",zIndex:1}}><p style={{color:"#79a0ff"}}>٤٠٤</p><h1>لم نجد هذه الصفحة</h1><p style={{color:"#aebddd"}}>يمكنك العودة واستكمال رحلتك بين الأسماء الحسنى.</p><Link href="/" style={{display:"inline-block",marginTop:20,background:"#1457ff",padding:"12px 24px",borderRadius:99}}>العودة للرئيسية</Link></div></main>}
