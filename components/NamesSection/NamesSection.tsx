@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { divineNames } from "@/data/names";
 import styles from "./NamesSection.module.css";
 
@@ -12,7 +13,7 @@ export default function NamesSection() {
     <section className={styles.section} id="names">
       <div className="page-container">
         <div className={styles.heading}>
-          <div><span>تعرّف إلى ربك</span><h2>أسماء الله الحسنى</h2><p>اختر اسمًا لتتأمل معناه وأثره في قلبك وحياتك.</p></div>
+          <div><span>تعرّف إلى ربك</span><h2 className={styles.srOnly}>أسماء الله الحسنى</h2><Image className={styles.asmaaTitle} src="/images/asmaa.png" alt="أسماء الله الحسنى" width={754} height={277} sizes="(max-width: 680px) 72vw, 330px"/><p>اختر اسمًا لتتأمل معناه وأثره في قلبك وحياتك.</p></div>
           <label className={styles.search}><span>⌕</span><input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="ابحث عن اسم أو معنى..." aria-label="البحث في الأسماء"/></label>
         </div>
         <div className={styles.grid}>
