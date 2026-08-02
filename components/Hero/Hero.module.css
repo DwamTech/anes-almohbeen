@@ -3,8 +3,9 @@
 .copy { position: relative; z-index: 2; }
 .eyebrow { color: #8eabeb; font-size: 12px; letter-spacing: .08em; display: flex; align-items: center; gap: 10px; }
 .eyebrow span { width: 28px; height: 1px; background: #477eff; box-shadow: 0 0 8px #477eff; }
-.copy h1 { margin: 22px 0; font-size: clamp(46px, 6vw, 78px); font-weight: 600; line-height: 1.35; letter-spacing: -.045em; }
-.copy h1 em { font-style: normal; color: #79a0ff; text-shadow: 0 0 35px rgba(54,111,255,.45); }
+.copy h1 { margin: 22px 0; font-family: "Amiri", "Traditional Arabic", serif; font-size: clamp(49px, 6.25vw, 82px); font-weight: 400; line-height: 1.85; letter-spacing: .025em; word-spacing: .08em; }
+.copy h1 strong { font-weight: 700; }
+.copy h1 em { font-style: normal; font-weight: 700; color: #79a0ff; text-shadow: 0 0 35px rgba(54,111,255,.45); }
 .copy p { color: var(--muted); line-height: 2.1; max-width: 590px; font-size: 15px; }
 .actions { display: flex; gap: 14px; margin-top: 34px; }
 .primary, .secondary { border-radius: 999px; height: 50px; padding-inline: 24px; display: flex; align-items: center; gap: 14px; font-size: 13px; }
@@ -29,4 +30,4 @@
 .abdAllah { position:absolute; z-index:3; width:104%; height:138px; left:50%; bottom:0; transform:translateX(-50%); display:flex; align-items:center; justify-content:center; pointer-events:none; filter:drop-shadow(0 15px 23px rgba(0,0,0,.5)); }
 .abdAllah img { width:100%; height:100%; object-fit:contain; }
 @media(max-width:800px){.content{grid-template-columns:1fr;text-align:center;padding-block:60px}.copy p{margin-inline:auto}.eyebrow{justify-content:center}.visual{width:min(90vw,420px);grid-row:1;padding-bottom:62px}.hero{min-height:auto}}
-@media(max-width:520px){.copy h1{font-size:42px}.visual{width:96vw;padding-bottom:48px}.abdAllah{width:108%;height:108px}.content{gap:28px}}
+@media(max-width:520px){.copy h1{font-size:44px}.visual{width:96vw;padding-bottom:48px}.abdAllah{width:108%;height:108px}.content{gap:28px}}

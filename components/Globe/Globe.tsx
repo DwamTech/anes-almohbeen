@@ -13,6 +13,12 @@ function Earth() {
   useEffect(() => {
     texture.colorSpace = THREE.SRGBColorSpace;
     texture.anisotropy = 8;
+    texture.wrapS = THREE.RepeatWrapping;
+    texture.wrapT = THREE.ClampToEdgeWrapping;
+    // Reduce the visual width of the central Pacific while preserving
+    // the same globe geometry and continuous one-direction rotation.
+    texture.repeat.set(1.28, 1);
+    texture.offset.set(-0.14, 0);
     texture.needsUpdate = true;
 
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");

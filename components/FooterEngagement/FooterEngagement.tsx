@@ -3,16 +3,53 @@
 import { useEffect, useState } from "react";
 import styles from "./FooterEngagement.module.css";
 
-const BASE_VISITORS = 1477314;
+type VisitResponse = { count: number };
+
+type VisitorWindow = Window & {
+  __allahAneesPageLoadId?: string;
+};
 
 export default function FooterEngagement() {
-  const [visitors, setVisitors] = useState(BASE_VISITORS);
+  const [visitors, setVisitors] = useState<number | null>(null);
 
   useEffect(() => {
-    const key = "allah-anees-first-visit";
-    const isReturningVisitor = window.localStorage.getItem(key);
-    if (!isReturningVisitor) window.localStorage.setItem(key, new Date().toISOString());
-    setVisitors(BASE_VISITORS + (isReturningVisitor ? 0 : 1));
+    let isActive = true;
+    const visitorWindow = window as VisitorWindow;
+
+    visitorWindow.__allahAneesPageLoadId ??=
+      window.crypto.randomUUID?.() ??
+      `${window.performance.timeOrigin}-${Math.random().toString(36).slice(2)}`;
+
+    async function updateCount(method: "GET" | "POST") {
+      const response = await fetch("/api/visits", {
+        method,
+        cache: "no-store",
+        headers:
+          method === "POST" ? { "Content-Type": "application/json" } : undefined,
+        body:
+          method === "POST"
+            ? JSON.stringify({
+                requestId: visitorWindow.__allahAneesPageLoadId,
+              })
+            : undefined,
+      });
+
+      if (!response.ok) throw new Error("Unable to load visitor count");
+
+      const data = (await response.json()) as VisitResponse;
+      if (isActive) setVisitors(data.count);
+    }
+
+    updateCount("POST").catch(() => undefined);
+    const liveUpdate = window.setInterval(
+      () => updateCount("GET").catch(() => undefined),
+      10_000,
+    );
+
+    return () => {
+      isActive = false;
+      window.clearInterval(liveUpdate);
+    };
   }, []);
 
   const shareText = "الله أنيس المحبين — رحلة في رحاب أسماء الله الحسنى";
@@ -61,7 +98,11 @@ export default function FooterEngagement() {
 
       <div className={styles.visitors}>
         <span>أنت الزائر رقم</span>
-        <strong>{new Intl.NumberFormat("en-US").format(visitors)}</strong>
+        <strong aria-live="polite">
+          {visitors === null
+            ? "..."
+            : new Intl.NumberFormat("en-US").format(visitors)}
+        </strong>
       </div>
       </div>
     </section>

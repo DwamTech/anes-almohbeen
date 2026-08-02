@@ -8,8 +8,12 @@ export default function Hero() {
       <div className={`page-container ${styles.content}`}>
         <div className={styles.copy}>
           <div className={styles.eyebrow}><span /> رحلة في رحاب أسماء الله الحسنى</div>
-          <h1>وللهِ الأسماءُ<br/><em>الحُسنى</em> فادعوهُ بها</h1>
-          <p>كل اسمٍ باب، وكل معنى نور. رحلة قلبية نتعرّف فيها إلى الله بأسمائه، لنعبده حبًا ومعرفةً ويقينًا.</p>
+          <h1>
+            <strong>وَلِلَّهِ الْأَسْمَاءُ</strong>
+            <br />
+            <em>الْحُسْنَىٰ</em> <strong>فَادْعُوهُ بِهَا</strong>
+          </h1>
+          {/* <p>كل اسمٍ باب، وكل معنى نور. رحلة قلبية نتعرّف فيها إلى الله بأسمائه، لنعبده حبًا ومعرفةً ويقينًا.</p> */}
         </div>
 
         <div className={styles.visual}>

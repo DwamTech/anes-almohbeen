@@ -1,5 +1,7 @@
 import type { DivineName } from "@/data/names";
 import { youtubeChannelUrl, youtubeVideosByName } from "@/data/youtubeVideos";
+import DivineNameText from "@/components/DivineNameText/DivineNameText";
+import OrnamentIcon from "@/components/OrnamentIcon/OrnamentIcon";
 import styles from "./NameContent.module.css";
 
 export default function NameContent({ item }: { item: DivineName }) {
@@ -9,15 +11,11 @@ export default function NameContent({ item }: { item: DivineName }) {
     <section className={styles.contentSection}>
       <div className={styles.articleHeading}>
         <span>تأمّل واقرأ</span>
-        <h2>رحلة مع اسم الله «{item.name}»</h2>
+        <h2>رحلة مع اسم الله «<DivineNameText name={item.name} />»</h2>
         <p>معرفة أسماء الله ليست حفظًا للألفاظ فحسب، بل حياةٌ للقلب وطريقٌ إلى المحبة واليقين.</p>
       </div>
 
       <div className={styles.mediaSection}>
-        <div className={styles.mediaHeading}>
-          <div><span>شاهد واستمع</span><h2>شرح اسم الله «{item.name}»</h2></div>
-          {!videoId && <p>لم يُنشر فيديو هذا الاسم على القناة حتى الآن.</p>}
-        </div>
         {videoId ? (
           <div className={styles.videoFrame}>
             <iframe
@@ -51,11 +49,11 @@ export default function NameContent({ item }: { item: DivineName }) {
 
           <h3>المعنى الذي يحيي القلب</h3>
           <p>
-            اسم الله <b>{item.name}</b> يدل على أنه سبحانه {item.meaning}. وكلما استقر هذا المعنى في القلب، ازداد العبد معرفةً بربه، وحسنًا في ظنه به، وصدقًا في الإقبال عليه.
+            اسم الله <b><DivineNameText name={item.name} /></b> يدل على أنه سبحانه {item.meaning}. وكلما استقر هذا المعنى في القلب، ازداد العبد معرفةً بربه، وحسنًا في ظنه به، وصدقًا في الإقبال عليه.
           </p>
 
           <blockquote>
-            <span>✦</span>
+            <span><OrnamentIcon /></span>
             <p>{item.impact}</p>
           </blockquote>
 
@@ -66,13 +64,13 @@ export default function NameContent({ item }: { item: DivineName }) {
 
           <h3>دعاء وتضرّع</h3>
           <p>
-            يا {item.name}، نسألك أن تملأ قلوبنا بمعرفتك ومحبتك، وأن ترزقنا صدق التوكل عليك، وحسن الظن بك، ولذة القرب منك، وأن تجعل هذا الاسم نورًا في قلوبنا وحياتنا.
+            يا <DivineNameText name={item.name} />، نسألك أن تملأ قلوبنا بمعرفتك ومحبتك، وأن ترزقنا صدق التوكل عليك، وحسن الظن بك، ولذة القرب منك، وأن تجعل هذا الاسم نورًا في قلوبنا وحياتنا.
           </p>
         </article>
 
         <aside className={styles.sideNote}>
           <span>وردك اليومي</span>
-          <b>يا {item.name}</b>
+          <b>يا <DivineNameText name={item.name} /></b>
           <p>ردّد الاسم بقلب حاضر، واستشعر معناه وأثره في دعائك.</p>
         </aside>
       </div>

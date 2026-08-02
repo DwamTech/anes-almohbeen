@@ -1,4 +1,5 @@
 import Image from "next/image";
+import OrnamentIcon from "@/components/OrnamentIcon/OrnamentIcon";
 import styles from "./About.module.css";
 
 export default function About() {
@@ -29,7 +30,7 @@ export default function About() {
             height={500}
             sizes="(max-width: 760px) 82vw, 440px"
           />
-          <div className={styles.bookBadge}><span>✦</span><b>رحلة قلبية</b><small>في رحاب الأسماء الحسنى</small></div>
+          <div className={styles.bookBadge}><span><OrnamentIcon /></span><b>رحلة قلبية</b><small>في رحاب الأسماء الحسنى</small></div>
         </div>
       </div>
     </section>
