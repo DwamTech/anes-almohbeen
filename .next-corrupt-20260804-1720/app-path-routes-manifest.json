@@ -1,0 +1,6 @@
+{
+  "/api/visits/route": "/api/visits",
+  "/icon.png/route": "/icon.png",
+  "/page": "/",
+  "/names/[slug]/page": "/names/[slug]"
+}
