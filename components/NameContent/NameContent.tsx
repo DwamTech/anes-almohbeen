@@ -1,8 +1,68 @@
+import type { ReactNode } from "react";
 import type { DivineName } from "@/data/names";
 import { nameArticlesBySlug } from "@/data/nameArticles";
 import { youtubeChannelUrl, youtubeVideosByName } from "@/data/youtubeVideos";
 import DivineNameText from "@/components/DivineNameText/DivineNameText";
 import styles from "./NameContent.module.css";
+
+const quranMarksPattern = /[\u0670\u0671\u06d6-\u06ed]/;
+const arabicDiacriticsPattern = /[\u064b-\u065f]/g;
+
+function isQuranVerse(text: string) {
+  if (quranMarksPattern.test(text)) return true;
+  return (text.match(arabicDiacriticsPattern)?.length ?? 0) >= 4;
+}
+
+function QuranAwareText({ text }: { text: string }) {
+  const content: ReactNode[] = [];
+  let cursor = 0;
+
+  while (cursor < text.length) {
+    const openingIndex = text.indexOf("(", cursor);
+
+    if (openingIndex === -1) {
+      content.push(text.slice(cursor));
+      break;
+    }
+
+    let depth = 0;
+    let closingIndex = -1;
+
+    for (let index = openingIndex; index < text.length; index += 1) {
+      if (text[index] === "(") depth += 1;
+      if (text[index] === ")") depth -= 1;
+
+      if (depth === 0) {
+        closingIndex = index;
+        break;
+      }
+    }
+
+    if (closingIndex === -1) {
+      content.push(text.slice(cursor));
+      break;
+    }
+
+    if (openingIndex > cursor) {
+      content.push(text.slice(cursor, openingIndex));
+    }
+
+    const parentheticalText = text.slice(openingIndex, closingIndex + 1);
+    content.push(
+      isQuranVerse(parentheticalText) ? (
+        <span className={styles.quranVerse} key={`${openingIndex}-${closingIndex}`}>
+          {parentheticalText}
+        </span>
+      ) : (
+        parentheticalText
+      ),
+    );
+
+    cursor = closingIndex + 1;
+  }
+
+  return content;
+}
 
 export default function NameContent({ item }: { item: DivineName }) {
   const videoId = youtubeVideosByName[item.name];
@@ -53,10 +113,10 @@ export default function NameContent({ item }: { item: DivineName }) {
           <article className={styles.article} aria-label={`مقال عن اسم الله ${item.name}`}>
             {paragraphs.map((paragraph) => (
               <section className={styles.paragraph} key={paragraph.id}>
-                {paragraph.title ? <h2>{paragraph.title}</h2> : null}
+                {paragraph.title ? <h2><QuranAwareText text={paragraph.title} /></h2> : null}
                 <div className={styles.paragraphContent}>
                   {paragraph.content.map((content, index) =>
-                    content ? <p key={index}>{content}</p> : null,
+                    content ? <p key={index}><QuranAwareText text={content} /></p> : null,
                   )}
                 </div>
               </section>
