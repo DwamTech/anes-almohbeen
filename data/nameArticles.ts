@@ -1,6 +1,7 @@
 import name1 from "./nameArticles/name-1.json";
 import name2 from "./nameArticles/name-2.json";
 import name3 from "./nameArticles/name-3.json";
+import nameMalek from "./nameArticles/name-malek.json";
 import name4 from "./nameArticles/name-4.json";
 import name5 from "./nameArticles/name-5.json";
 import name6 from "./nameArticles/name-6.json";
@@ -19,6 +20,11 @@ import name18 from "./nameArticles/name-18.json";
 import name19 from "./nameArticles/name-19.json";
 import name20 from "./nameArticles/name-20.json";
 import name21 from "./nameArticles/name-21.json";
+import name62 from "./nameArticles/name-62.json";
+import name63 from "./nameArticles/name-63.json";
+import name66 from "./nameArticles/name-66.json";
+import name67 from "./nameArticles/name-67.json";
+import name68 from "./nameArticles/name-68.json";
 
 export type NameArticleParagraph = {
   id: number;
@@ -35,6 +41,7 @@ export const nameArticlesBySlug: Partial<Record<string, NameArticle>> = {
   "name-1": name1,
   "name-2": name2,
   "name-3": name3,
+  "name-malek": nameMalek,
   "name-4": name4,
   "name-5": name5,
   "name-6": name6,
@@ -53,4 +60,9 @@ export const nameArticlesBySlug: Partial<Record<string, NameArticle>> = {
   "name-19": name19,
   "name-20": name20,
   "name-21": name21,
+  "name-62": name62,
+  "name-63": name63,
+  "name-66": name66,
+  "name-67": name67,
+  "name-68": name68,
 };

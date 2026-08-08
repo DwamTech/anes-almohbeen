@@ -1,6 +1,9 @@
 export const youtubeChannelUrl = "https://www.youtube.com/@allah_anis/videos";
 
 export const youtubeVideosByName: Record<string, string> = {
+  "المليك": "V4AGzcl3OAQ",
+  "الواحد": "k8d-_8UEwsI",
+  "الأحد": "JLbuA250LCI",
   "الرحمن": "dE-1RhHKJmA",
   "الرحيم": "v29J_tIWL0E",
   "الملك": "LMypH_F_1W4",
